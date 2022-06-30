@@ -1,5 +1,5 @@
 FROM node
 
-COPY ./script.sh /script.sh
+COPY ./script.js /script.js
 
-CMD ["sh", "-u", "./script.sh"]
+CMD ["node", "./script.js"]
