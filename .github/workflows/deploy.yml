@@ -13,3 +13,12 @@ jobs:
       -
         name: Login to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u NeilvB --password-stdin
+      -
+        name: Pull image to use as a cache
+        run: docker pull ghcr.io/NeilvB/rails_app:latest || exit 0
+      -
+        name: Build Docker image
+        run: docker build . --cache-from ghcr.io/NeilvB/rails_app:latest --tag ghcr.io/NeilvB/rails_app:latest
+      -
+        name: Push the image to GitHub Container Registry
+        run: docker push ghcr.io/NeilvB/rails_app:latest
