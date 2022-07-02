@@ -22,3 +22,13 @@ jobs:
       -
         name: Push the image to GitHub Container Registry
         run: docker push ghcr.io/neilvb/rails_app:latest
+      -
+        name: VPS - pull image and run app containters
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            echo "Github action SSH test"
+            whoami
