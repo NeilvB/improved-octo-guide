@@ -18,7 +18,7 @@ jobs:
         run: docker pull ghcr.io/NeilvB/rails_app:latest || exit 0
       -
         name: Build Docker image
-        run: docker build . --cache-from ghcr.io/NeilvB/rails_app:latest --tag ghcr.io/NeilvB/rails_app:latest
+        run: docker build . --cache-from ghcr.io/neilvb/rails_app:latest --tag ghcr.io/neilvb/rails_app:latest
       -
         name: Push the image to GitHub Container Registry
-        run: docker push ghcr.io/NeilvB/rails_app:latest
+        run: docker push ghcr.io/neilvb/rails_app:latest
